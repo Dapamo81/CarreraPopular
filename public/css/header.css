@@ -1,0 +1,14 @@
+.cabecera {
+    background-image: url("/img/banner.png");
+    background-size:cover;          /*  La imagen cubre todo el área */
+    background-position: top center;/* Centra la imagen horizontal y verticalmente */
+    background-repeat: no-repeat;      /* No repite la imagen */
+    width: 100vw;                      /* Ocupa todo el ancho de la ventana */
+    min-height: 320px;                 /* Altura mínima profesional */
+    display: flex;                     /* Permite centrar contenido */
+    align-items: center;               /* Centra verticalmente el contenido */
+    justify-content: center;           /* Centra horizontalmente el contenido */
+    color: #fff;                       /* Texto blanco para mejor contraste */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15); /* Sombra sutil */
+    position: relative;                /* Para futuros elementos superpuestos */
+}
