@@ -10,4 +10,7 @@ router.post('/login', authController.postLogin);
 
 router.get('/logout', authController.logout);
 
+router.get('/area-privada',authController.getAreaPrivada);
+router.post('/area-privada',authController.postAreaPrivada);
+
 module.exports = router;
