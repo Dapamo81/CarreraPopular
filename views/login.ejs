@@ -1,19 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Login</title>
-</head>
-<body>
-  <h1>Login</h1>
-  <% if (error) { %>
-    <p style="color:red;"><%= error %></p>
-  <% } %>
-  <form action="/auth/login" method="POST">
-    <label>Usuario: <input type="text" name="username" /></label><br />
-    <label>Contraseña: <input type="password" name="password" /></label><br />
-    <button type="submit">Ingresar</button>
-  </form>
-  <a href="/">Volver</a>
-</body>
-</html>
+
+<%- include('partials/head') %>
+  <%- include('partials/header') %>
+
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Iniciar sesión moi</h2>
+            <% if (error) { %>
+              <div class="alert alert-danger text-center"><%= error %></div>
+            <% } %>
+            <form action="/auth" method="POST">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" required>
+              </div>
+             
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <button type="submit" class="btn-save w-100">Ingresar</button>
+            </form>
+            <div class="text-center mt-3">
+              <a href="/" class="btn btn-primary w-100">Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%- include ('partials/footer') %>

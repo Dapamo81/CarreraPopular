@@ -1,19 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Registro</title>
-</head>
-<body>
-  <h1>Registro</h1>
-  <% if (error) { %>
-    <p style="color:red;"><%= error %></p>
-  <% } %>
-  <form action="/auth/register" method="POST">
-    <label>Usuario: <input type="text" name="username" /></label><br />
-    <label>Contraseña: <input type="password" name="password" /></label><br />
-    <button type="submit">Registrarse</button>
-  </form>
-  <a href="/">Volver</a>
-</body>
-</html>
+<%- include('partials/head') %>
+
+  <%- include('partials/header') %>
+
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Registro</h2>
+            <% if (error) { %>
+              <div class="alert alert-danger text-center"><%= error %></div>
+            <% } %>
+            <form action="/register" method="POST">
+              <div class="mb-3">
+                <label for="username" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+              </div>
+              <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" name="dni" required>
+              </div>
+              <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" required>
+              </div>
+              <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required>
+              </div>
+              <div class="mb-3">
+                <label for="poblacion" class="form-label">Poblacion</label>
+                <input type="text" class="form-control" id="poblacion" name="poblacion" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="cp" class="form-label">Código postal</label>
+                <input type="text" class="form-control" id="cp" name="cp" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+
+              <div class="button-container d-flex gap-2 justify-content-center">               
+                <input type="submit" value= "Guardar" class="btn-save w-100">
+                <a href="/" class="btn-cancel w-100">Cancelar</a>
+              </div>
+
+            </form>
+            <div class="text-center mt-3">
+              <a href="/" class="btn btn-primary w-100">Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%- include ('partials/footer') %>
