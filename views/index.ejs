@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Página Principal</title>
+</head>
+<body>
+  <h1>Bienvenido</h1>
+  <% if (!locals.userId) { %>
+    <a href="/auth/login">Login</a> | <a href="/auth/register">Registro</a>
+  <% } else { %>
+    <a href="/dashboard">Dashboard</a> | <a href="/auth/logout">Logout</a>
+  <% } %>
+
+  <% if (success) { %>
+    <p style="color:green;"><%= success %></p>
+  <% } %>
+  <% if (error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+</body>
+</html>
