@@ -22,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Middleware para parsear cuerpos
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
 // Sesiones
 app.use(session({
@@ -41,7 +42,7 @@ app.use((req, res, next) => {
 
 // Rutas
 app.use('/', indexRoutes);
-app.use('/auth', authRoutes);
+app.use('/', authRoutes);
 
 // Iniciar servidor
 app.listen(port, () => {
