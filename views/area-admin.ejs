@@ -3,6 +3,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <%- include ('partials/header') %>
         <div class="container my-5">
+            
                 <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
                     <h2 class="mb-0 text-center">Lista de Corredores</h2>
                  
@@ -29,6 +30,32 @@
                         </tr>
                     </thead>
                 <tbody>
+                    <tbody>
+                    <% corredores.forEach(corredor => { %>
+                        <tr>
+                            <td><%= corredor.id %></td>
+                            <td><%= corredor.dni %></td>
+                            <td><%= corredor.nombre %></td>
+                            <td><%= corredor.apellidos %></td>
+                            <td><%= corredor.telefono %></td>
+                            <td><%= corredor.direccion %></td>
+                            <td><%= corredor.poblacion %></td>
+                            <td><%= corredor.cp %></td>
+                            <td><%= corredor.contrasena %></td>
+                            <td><%= corredor.email %></td>
+                            <td class="d-flex justify-content-center gap-1">                                
+                                <a href="edit/<%= corredor.email %>" 
+                                    class="btn btn-outline-warning">
+                                    <i class='bx bx-edit bx-md'></i>
+                                </a>
+                                <a href="delete/deleteCorredores/<%= corredor.email %>" 
+                                    class="btn btn-outline-danger">
+                                <i class='bx bx-trash bx-md'></i>
+                            </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
                     
                 </tbody>
             </table>

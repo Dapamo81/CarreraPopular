@@ -4,14 +4,15 @@
 
   <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
+      <%- include ('partials/aside') %>
       <div class="col-md-6 col-lg-4">
         <div class="card shadow">
           <div class="card-body">
-            <h2 class="card-title text-center mb-4">Iniciar sesión corredores</h2>
+            <h2 class="card-title text-center mb-4">Iniciar sesión administradores</h2>
             <% if (error) { %>
               <div class="alert alert-danger text-center"><%= error %></div>
             <% } %>
-            <form action="/login" method="POST">
+            <form action="/login-admin" method="POST">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id="email" name="email" required>

@@ -1,10 +1,12 @@
 <%- include ('partials/head') %>
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <%- include ('partials/header') %>
      
          <div class="container my-5">
                 <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
-                    <h2 class="mb-0">Area Privada</h2>
-                
+                    <h2 class="mb-0">Area Privada</h2>               
                 </div>
                     
                 <table class="table table-bordered table-hover text-center align-middle">
@@ -14,17 +16,38 @@
                             <th scope="col">Numero de dorsal</th>
                             <th scope="col">DNI</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
+                            <th scope="col">Apellidos</th>
                             <th scope="col">Teléfono</th>
                             <th scope="col">Dirección</th>
                             <th scope="col">Poblacion</th>
                             <th scope="col">Código Postal</th>
                             <th scope="col">Contraseña</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Editar</th>
                             
                         </tr>
                     </thead>
                 <tbody>
-              
+                    <% corredores.forEach(corredor => { %>
+                        <tr>
+                            <td><%= corredor.id %></td>
+                            <td><%= corredor.dni %></td>
+                            <td><%= corredor.nombre %></td>
+                            <td><%= corredor.apellidos %></td>
+                            <td><%= corredor.telefono %></td>
+                            <td><%= corredor.direccion %></td>
+                            <td><%= corredor.poblacion %></td>
+                            <td><%= corredor.cp %></td>
+                            <td><%= corredor.contrasena %></td>
+                            <td><%= corredor.email %></td>
+                            <td class="d-flex justify-content-center gap-1">                                
+                                <a href="edit/<%= corredor.id %>" 
+                                    class="btn btn-outline-warning">
+                                    <i class='bx bx-edit '></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
                 </tbody>
             </table>
         </div>       
