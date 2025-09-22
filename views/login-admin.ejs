@@ -22,6 +22,13 @@
                 <label for="password" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
+              
+              <% if (typeof loginError !== 'undefined') { %>
+                <div class="alert alert-danger" role="alert">
+                  <%= loginError %>
+                </div>
+              <% } %>
+
               <button type="submit" class="btn-save w-100">Ingresar</button>
             </form>
             <div class="text-center mt-3">
@@ -30,6 +37,7 @@
           </div>
         </div>
       </div>
+     
     </div>
   </div>
 <%- include ('partials/footer') %>

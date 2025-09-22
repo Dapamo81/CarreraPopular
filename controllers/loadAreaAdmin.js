@@ -6,6 +6,6 @@ exports.loadCorredores = (req, res) => {
             console.error(error);
             return res.status(500).send('Error en el servidor');
         }
-        res.render('area-admin', { corredores: results });
+        res.render('area-admin', { corredores: results , rol: req.session.rol || null });
     });
 };

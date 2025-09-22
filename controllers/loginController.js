@@ -1,12 +1,14 @@
 const db = require('../config/db');
 
 exports.getLogin = (req, res) => {
-  res.render('login');
+  res.render('login', { rol: req.session.rol || null });
 };
 
 exports.postLogin = async (req, res) => {
- const email = req.body.email;
+    const email = req.body.email;
     const pass = req.body.password;
+
+    
     console.log(req.body);
 
     if (email && pass) {
@@ -20,11 +22,13 @@ exports.postLogin = async (req, res) => {
                 ) {
                     console.log(results, results.lenght);
                     console.log("Usuario y/o contraseña incorrectas");
-                    return res.render("login");
+                    return res.render("login", { rol: req.session.rol || null, loginError: "Usuario y/o contraseña incorrectas" });
+                    
                 } else {
                     console.log("Conexión exitosa");
                     req.session.loggedIn = true;
                     req.session.email = results[0].email;
+                    req.session.rol = "runner";
                     return res.redirect('/area-privada');                 
                 }
                     }
@@ -46,14 +50,15 @@ exports.postLogin = async (req, res) => {
 };
 
 exports.getLoginAdmin = (req, res) => {
-  res.render('login-admin');
+  res.render('login-admin', { rol: req.session.rol || null });
 };
 
 exports.postLoginAdmin = async (req, res) => {
-    console.log("Entrando en postLoginAdmin");
+    
     const email = req.body.email;
     const pass = req.body.password;
     console.log(req.body);
+
 
     if (email && pass) {
         db.query(
@@ -66,19 +71,20 @@ exports.postLoginAdmin = async (req, res) => {
                 ) {
                     console.log(results, results.lenght);
                     console.log("Usuario y/o contraseña incorrectasssssss");
-                    return res.render("/");
+                    return res.render("login-admin", { rol: req.session.rol || null, loginError: "Usuario y/o contraseña incorrectas"  });
 
                 } else {
                     console.log("Conexión exitosa");
                     req.session.loggedIn = true;
                     req.session.email = results[0].email;
+                    req.session.rol = "admin";
                     return res.redirect('/area-admin');                 
                 }
                     }
         );
     }else{
         console.log("Introduzca su email y contraseña");
-        res.render("login-admin");
+        res.render('login-admin', { rol: req.session.rol || null });
     }
 };
 

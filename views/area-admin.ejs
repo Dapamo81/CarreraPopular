@@ -3,61 +3,62 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <%- include ('partials/header') %>
         <div class="container my-5">
+
+            <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+                <h2 class="mb-0 text-center">Lista de Corredores</h2>
+             
+                    <a href="/register" class="btn btn-outline-primary ms-4"><i class='bx bx-plus-circle bx-md'></i></a>
             
-                <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
-                    <h2 class="mb-0 text-center">Lista de Corredores</h2>
-                 
-                        <a href="/create" class="btn btn-outline-primary ms-4"><i class='bx bx-plus-circle bx-md'></i></a>
+            </div>
                 
-                </div>
-                    
-                <table class="table table-bordered table-hover text-center align-middle">
-                    <thead class="table table-primary text-white table-bordered table-striped text-center mt-2">
-                        <tr class="bg-primary text-white">
-                      
-                            <th scope="col">Numero de dorsal</th>
-                            <th scope="col">DNI</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Poblacion</th>
-                            <th scope="col">Código Postal</th>
-                            <th scope="col">Contraseña</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Editar</th>
-                         
-                        </tr>
-                    </thead>
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table table-primary text-white table-bordered table-striped text-center mt-2">
+                    <tr class="bg-primary text-white">
+                  
+                        <th scope="col">Numero de dorsal</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Poblacion</th>
+                        <th scope="col">Código Postal</th>
+                        <th scope="col">Contraseña</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Editar</th>
+                     
+                    </tr>
+                </thead>
+            <tbody>
                 <tbody>
-                    <tbody>
-                    <% corredores.forEach(corredor => { %>
-                        <tr>
-                            <td><%= corredor.id %></td>
-                            <td><%= corredor.dni %></td>
-                            <td><%= corredor.nombre %></td>
-                            <td><%= corredor.apellidos %></td>
-                            <td><%= corredor.telefono %></td>
-                            <td><%= corredor.direccion %></td>
-                            <td><%= corredor.poblacion %></td>
-                            <td><%= corredor.cp %></td>
-                            <td><%= corredor.contrasena %></td>
-                            <td><%= corredor.email %></td>
-                            <td class="d-flex justify-content-center gap-1">                                
-                                <a href="edit/<%= corredor.email %>" 
-                                    class="btn btn-outline-warning">
-                                    <i class='bx bx-edit bx-md'></i>
-                                </a>
-                                <a href="delete/deleteCorredores/<%= corredor.email %>" 
-                                    class="btn btn-outline-danger">
-                                <i class='bx bx-trash bx-md'></i>
+                <% corredores.forEach(corredor => { %>
+                    <tr>
+                        <td><%= corredor.id %></td>
+                        <td><%= corredor.dni %></td>
+                        <td><%= corredor.nombre %></td>
+                        <td><%= corredor.apellidos %></td>
+                        <td><%= corredor.telefono %></td>
+                        <td><%= corredor.direccion %></td>
+                        <td><%= corredor.poblacion %></td>
+                        <td><%= corredor.cp %></td>
+                        <td><%= corredor.contrasena %></td>
+                        <td><%= corredor.email %></td>
+                        <td class="d-flex justify-content-center gap-1">                                
+                            <a href="edit/<%= corredor.email %>" 
+                                class="btn btn-outline-warning">
+                                <i class='bx bx-edit bx-md'></i>
                             </a>
-                            </td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-                    
-                </tbody>
-            </table>
-        </div>       
+                            <a href="delete/<%= corredor.id %>" 
+                                class="btn btn-outline-danger">
+                            <i class='bx bx-trash bx-md'></i>
+                        </a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+                
+            </tbody>
+        </table>
+    </div>       
+            
         <%- include ('partials/footer') %>

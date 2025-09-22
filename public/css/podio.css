@@ -1,0 +1,47 @@
+    .podio {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 50px;
+    }
+
+    .puesto {
+      position: relative;
+      text-align: center;
+      margin: 0 10px;
+    }
+
+    .medalla {
+      width: 80px;
+      height: 80px;
+      border-radius:10%;
+      background-color: #ffc107; /* Color dorado por defecto */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Colores específicos para cada puesto */
+    .primero {
+      background-color: #ffd700; /* Oro */
+      height: 200px;
+    }
+
+    .segundo {
+      background-color: #c0c0c0; /* Plata */
+      height: 180px;
+    }
+
+    .tercero {
+      background-color: #cd7f32; /* Bronce */
+      height: 160px;
+    }
+
+    /* Nombres de los corredores */
+    .nombre {
+      margin-top: 10px;
+      font-weight: bold;
+    }

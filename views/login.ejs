@@ -4,6 +4,9 @@
 
   <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
+      
+        <%- include ('partials/aside') %>
+      
       <div class="col-md-6 col-lg-4">
         <div class="card shadow">
           <div class="card-body">
@@ -21,6 +24,13 @@
                 <label for="password" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
+
+              <% if (typeof loginError !== 'undefined') { %>
+                <div class="alert alert-danger" role="alert">
+                  <%= loginError %>
+                </div>
+              <% } %>
+
               <button type="submit" class="btn-save w-100">Ingresar</button>
             </form>
             <div class="text-center mt-3">
@@ -29,6 +39,7 @@
           </div>
         </div>
       </div>
+ 
     </div>
   </div>
 <%- include ('partials/footer') %>

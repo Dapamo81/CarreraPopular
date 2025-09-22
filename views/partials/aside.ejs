@@ -1,14 +1,29 @@
 <aside class="col-12 col-md-3 d-flex align-items-stretch">
     <div class="card h-100 shadow-sm w-100">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-        <h5 class="mb-3 fw-bold">Carreras populares</h5>
-        <div class="list-group w-100">
-            <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('10 Blaus de Gràcia')">10 Blaus de Gràcia</h4>
-            <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('24 hores d\'ultrafons')">24 hores d'ultrafons</h4>
-            <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Antena Solidària - Trail Pedralbes')">Antena Solidària - Trail Pedralbes</h4>
-            <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Barcelona Trail Races')">Barcelona Trail Races</h4>
-            <h4 class="list-group-item list-group-item-action" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Breakfast Run')">Breakfast Run</h4>
-        </div>
+        <div class="card-body justify-content-center align-items-center">
+          <h5 class="mb-3 fw-bold">Carreras populares</h5>
+          <div class="list-group w-100">
+              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('10 Blaus de Gràcia')">10 Blaus de Gràcia</h4>
+              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('24 hores d\'ultrafons')">24 hores d'ultrafons</h4>
+              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Antena Solidària - Trail Pedralbes')">Antena Solidària - Trail Pedralbes</h4>
+              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Barcelona Trail Races')">Barcelona Trail Races</h4>
+              <h4 class="list-group-item list-group-item-action" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Breakfast Run')">Breakfast Run</h4>
+          </div>
         </div>
     </div>
 </aside>
+
+<script>
+  const carrerasInfo = {
+    '10 Blaus de Gràcia': 'Carrera urbana por el barrio de Gràcia.<br>Distancia: 10km.<br>Fecha: 15/09/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz2.jpg">',
+    '24 hores d\'ultrafons': 'Prueba de resistencia de 24 horas.<br>Circuito cerrado.<br>Fecha: 20/10/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz3.jpg">',
+    'Antena Solidària - Trail Pedralbes': 'Trail solidario por la zona de Pedralbes.<br>Distancia: 15km.<br>Fecha: 05/11/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz4.jpg">',
+    'Barcelona Trail Races': 'Trail por la montaña de Barcelona.<br>Distancia: 20km.<br>Fecha: 12/12/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz.jpg">',
+    'Breakfast Run': 'Carrera matinal con desayuno incluido.<br>Distancia: 5km.<br>Fecha: 01/01/2026. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz2.jpg">'
+  };
+
+  function setModalContent(carrera) {
+    document.getElementById('modalBody').innerHTML = carrerasInfo[carrera] || 'Información no disponible.';
+    document.getElementById('infoModalLabel').innerText = carrera;
+  }
+</script>
