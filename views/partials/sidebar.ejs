@@ -1,39 +1,34 @@
 <sidebar class="col-12 col-md-4 d-flex align-items-stretch">
     <div class="card h-100 shadow-sm w-100">
-        
-        <div class="card-body d-flex flex-column  align-items-center">
+        <div class="card-body d-flex flex-column align-items-center">
             <h5 class="mb-3 fw-bold">Lista de Corredores</h5>
-   
-            <table class="table table-bordered table-hover text-center align-middle">
-                <thead class="table table-primary text-white table-bordered table-striped text-center mt-2">
+
+            <table
+                class="table table-bordered table-hover text-center align-middle"
+            >
+                <thead
+                    class="table table-primary text-white table-bordered table-striped text-center mt-2"
+                >
                     <tr class="bg-primary text-white">
-                    
                         <th scope="col">Numero de dorsal</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
-                        
                     </tr>
-                </thead>   
+                </thead>
                 <tbody>
                     <% corredores.forEach(corredor => {%>
-                        <tr>
-                            <td><%= corredor.id %></td>
-                            <td><%= corredor.nombre %></td>
-                            <td><%= corredor.apellidos %></td>
-                        </tr>
+                    <tr>
+                        <td><%= corredor.id %></td>
+                        <td><%= corredor.nombre %></td>
+                        <td><%= corredor.apellidos %></td>
+                    </tr>
                     <% }); %>
-                </tbody> 
+                </tbody>
             </table>
 
-            
-            <h3 class="mb-4"> numero de corredores: </h3>
-            <h3 class="mb-4"> <%= totalCorredores %> </h3>
-
+            <h3 class="mb-4">numero de corredores:</h3>
+            <h3 class="mb-4"><%= totalCorredores %></h3>
         </div>
-        <%if (podio) { %>
-            <%- include ('podio') %> 
-        <% } %>
-
+        <%if (podio) { %> <%- include ('podio') %> <% } %>
     </div>
-            
-</sidebar> 
+</sidebar>

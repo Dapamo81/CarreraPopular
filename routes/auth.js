@@ -6,7 +6,7 @@ const loadAreaPrivada = require('../controllers/loadAreaPrivada');
 const loadAreaAdmin = require('../controllers/loadAreaAdmin');
 const editController = require('../controllers/editController');
 const deleteController = require('../controllers/deleteController');
-const loadPodio = require('../controllers/loadPodio');
+const loadPodio = require('../controllers/loadPodio'); 
 
 router.get('/register', resgisterController.getRegister );
 router.post('/register', resgisterController.postRegister);
@@ -30,6 +30,9 @@ router.post('/edit', editController.postUploadCorredor);
 router.get('/delete/:id', deleteController.getDeleteCorredor);
 
 router.get('/podio',loadPodio.getLoadPodio)
+
+router.get('/recuperar-pass', editController.getRecuperarPass);
+router.post('/recuperar-pass', editController.postRecuperarPass);
 
 
 module.exports = router;

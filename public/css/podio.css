@@ -1,47 +1,50 @@
-    .podio {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      margin-top: 50px;
-    }
+.podio {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50px;
+}
 
-    .puesto {
-      position: relative;
-      text-align: center;
-      margin: 0 10px;
-    }
+.puesto {
+    position: relative;
+    text-align: center;
+    margin: 0 10px;
+}
 
-    .medalla {
-      width: 80px;
-      height: 80px;
-      border-radius:10%;
-      background-color: #ffc107; /* Color dorado por defecto */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+.medalla {
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    background-color: #ffc107; /* Color dorado por defecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    /* Colores específicos para cada puesto */
-    .primero {
-      background-color: #ffd700; /* Oro */
-      height: 200px;
-    }
+/* Colores específicos para cada puesto */
+.primero {
+    background-color: #ffd700; /* Oro */
+    height: 200px;
+    margin-bottom: 10px;
+}
 
-    .segundo {
-      background-color: #c0c0c0; /* Plata */
-      height: 180px;
-    }
+.segundo {
+    background-color: #c0c0c0; /* Plata */
+    height: 150px;
+    margin-bottom: 10px;
+}
 
-    .tercero {
-      background-color: #cd7f32; /* Bronce */
-      height: 160px;
-    }
+.tercero {
+    background-color: #cd7f32; /* Bronce */
+    height: 100px;
+    margin-bottom: 10px;
+}
 
-    /* Nombres de los corredores */
-    .nombre {
-      margin-top: 10px;
-      font-weight: bold;
-    }
+/* Nombres de los corredores */
+.nombre {
+    margin-top: 10px;
+    font-weight: bold;
+}

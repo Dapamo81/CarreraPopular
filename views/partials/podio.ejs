@@ -1,35 +1,37 @@
 <div class="container text-center">
-    <h1 class="my-4">Podio de la Carrera</h1>
+    <h3 class="my-4">Podio de la Carrera</h3>
     <div class="podio">
-    
-      <% podio.forEach( c => { %>
-
-        
         <!-- 2º lugar -->
-        <% if(c.posicion === "2") {%>
-          <div class="puesto">
-            <div class="medalla segundo"><%= c.nombre %> <br> <%= c.apellidos %> <br> Dorsal: <%= c.id_corredor %></div>
-            <div class="corredor">2</div>
-          </div>
-        <% } %>
-        
+        <% podio.forEach( c => { %> <% if(c.posicion === "2") {%>
+        <div class="puesto">
+            <div class="medalla segundo">
+                <%= c.nombre %> <br />
+                <%= c.apellidos %> <br />
+                Dorsal: <%= c.id_corredor %>
+            </div>
+        </div>
+        <% } %> <% }) %>
+
         <!-- 1º lugar -->
-          
-        <% if(c.posicion === "1") { %>
-          <div class="puesto">
-            <div class="medalla primero"><%= c.nombre %> <br> <%= c.apellidos %> <br> Dorsla: <%= c.id_corredor %></div>
-            <div class="corredor">1</div>
-          </div>
-        <% } %>
-        
+        <% podio.forEach( c => { %> <% if(c.posicion === "1") { %>
+        <div class="puesto">
+            <div class="medalla primero">
+                <%= c.nombre %> <br />
+                <%= c.apellidos %> <br />
+                Dorsal: <%= c.id_corredor %>
+            </div>
+        </div>
+        <% } %> <% }) %>
+
         <!-- 3º lugar -->
-        <% if(c.posicion === "3") { %>
-          <div class="puesto">
-            <div class="medalla tercero"><%= c.nombre %> <br> <%= c.apellidos %> <br> Dorsal <%= c.id_corredor %></div>
-            <div class="corredor">3</div>
-          </div>
-          <% } %>
-          
-      <% }) %>
+        <% podio.forEach( c => { %> <% if(c.posicion === "3") { %>
+        <div class="puesto">
+            <div class="medalla tercero">
+                <%= c.nombre %> <br />
+                <%= c.apellidos %> <br />
+                Dorsal <%= c.id_corredor %>
+            </div>
+        </div>
+        <% } %> <% }) %>
     </div>
-  </div>
+</div>

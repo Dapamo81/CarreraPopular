@@ -1,29 +1,178 @@
 <aside class="col-12 col-md-3 d-flex align-items-stretch">
     <div class="card h-100 shadow-sm w-100">
         <div class="card-body justify-content-center align-items-center">
-          <h5 class="mb-3 fw-bold">Carreras populares</h5>
-          <div class="list-group w-100">
-              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('10 Blaus de Gràcia')">10 Blaus de Gràcia</h4>
-              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('24 hores d\'ultrafons')">24 hores d'ultrafons</h4>
-              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Antena Solidària - Trail Pedralbes')">Antena Solidària - Trail Pedralbes</h4>
-              <h4 class="list-group-item list-group-item-action mb-2" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Barcelona Trail Races')">Barcelona Trail Races</h4>
-              <h4 class="list-group-item list-group-item-action" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="setModalContent('Breakfast Run')">Breakfast Run</h4>
-          </div>
+            <h5 class="mb-3 fw-bold">Carreras populares</h5>
+            <div class="list-group w-100">
+                <h4
+                    class="list-group-item list-group-item-action mb-2"
+                    style="cursor: pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#infoModal"
+                    onclick="setModalContent('10 Blaus de Gràcia')"
+                >
+                    10 Blaus de Gràcia
+                </h4>
+                <h4
+                    class="list-group-item list-group-item-action mb-2"
+                    style="cursor: pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#infoModal"
+                    onclick="setModalContent('24 hores d\'ultrafons')"
+                >
+                    24 hores d'ultrafons
+                </h4>
+                <h4
+                    class="list-group-item list-group-item-action mb-2"
+                    style="cursor: pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#infoModal"
+                    onclick="setModalContent('Antena Solidària - Trail Pedralbes')"
+                >
+                    Antena Solidària - Trail Pedralbes
+                </h4>
+                <h4
+                    class="list-group-item list-group-item-action mb-2"
+                    style="cursor: pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#infoModal"
+                    onclick="setModalContent('Barcelona Trail Races')"
+                >
+                    Barcelona Trail Races
+                </h4>
+                <h4
+                    class="list-group-item list-group-item-action"
+                    style="cursor: pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#infoModal"
+                    onclick="setModalContent('Breakfast Run')"
+                >
+                    Breakfast Run
+                </h4>
+            </div>
         </div>
     </div>
 </aside>
 
-<script>
-  const carrerasInfo = {
-    '10 Blaus de Gràcia': 'Carrera urbana por el barrio de Gràcia.<br>Distancia: 10km.<br>Fecha: 15/09/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz2.jpg">',
-    '24 hores d\'ultrafons': 'Prueba de resistencia de 24 horas.<br>Circuito cerrado.<br>Fecha: 20/10/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz3.jpg">',
-    'Antena Solidària - Trail Pedralbes': 'Trail solidario por la zona de Pedralbes.<br>Distancia: 15km.<br>Fecha: 05/11/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz4.jpg">',
-    'Barcelona Trail Races': 'Trail por la montaña de Barcelona.<br>Distancia: 20km.<br>Fecha: 12/12/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz.jpg">',
-    'Breakfast Run': 'Carrera matinal con desayuno incluido.<br>Distancia: 5km.<br>Fecha: 01/01/2026. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz2.jpg">'
-  };
+<!-- Modal Bootstrap -->
+<div
+    class="modal fade"
+    id="infoModal"
+    tabindex="-1"
+    aria-labelledby="infoModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">
+                    Información de la carrera
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                ></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                Aquí irá la información de la carrera seleccionada.
+            </div>
+        </div>
+    </div>
+</div>
 
-  function setModalContent(carrera) {
-    document.getElementById('modalBody').innerHTML = carrerasInfo[carrera] || 'Información no disponible.';
-    document.getElementById('infoModalLabel').innerText = carrera;
-  }
+<!-- Modal Carrusel -->
+<div
+    class="modal fade"
+    id="carruselModal"
+    tabindex="-1"
+    aria-labelledby="carruselModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5
+                    class="modal-title w-100 text-center"
+                    id="carruselModalLabel"
+                >
+                    Fotos de la carrera
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                ></button>
+            </div>
+            <div class="modal-body p-0">
+                <div
+                    id="carruselFotos"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                >
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img
+                                src="/img/cursa-moritz.jpg"
+                                class="d-block w-100"
+                                alt="Foto 1"
+                            />
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                src="/img/cursa-moritz2.jpg"
+                                class="d-block w-100"
+                                alt="Foto 2"
+                            />
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                src="/img/cursa-moritz3.jpg"
+                                class="d-block w-100"
+                                alt="Foto 3"
+                            />
+                        </div>
+                    </div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carruselFotos"
+                        data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carruselFotos"
+                        data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const carrerasInfo = {
+        "10 Blaus de Gràcia":
+            'Carrera urbana por el barrio de Gràcia.<br>Distancia: 10km.<br>Fecha: 15/09/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz2.jpg">',
+        "24 hores d'ultrafons":
+            'Prueba de resistencia de 24 horas.<br>Circuito cerrado.<br>Fecha: 20/10/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz3.jpg">',
+        "Antena Solidària - Trail Pedralbes":
+            'Trail solidario por la zona de Pedralbes.<br>Distancia: 15km.<br>Fecha: 05/11/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz4.jpg">',
+        "Barcelona Trail Races":
+            'Trail por la montaña de Barcelona.<br>Distancia: 20km.<br>Fecha: 12/12/2025. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz.jpg">',
+        "Breakfast Run":
+            'Carrera matinal con desayuno incluido.<br>Distancia: 5km.<br>Fecha: 01/01/2026. <br> <img class="img-fluid rounded shadow mt-3 mb-3" src="img/cursa-moritz2.jpg">',
+    };
+
+    function setModalContent(carrera) {
+        document.getElementById("modalBody").innerHTML =
+            carrerasInfo[carrera] || "Información no disponible.";
+        document.getElementById("infoModalLabel").innerText = carrera;
+    }
 </script>
