@@ -12,7 +12,7 @@
 }
 
 .medalla {
-    width: 80px;
+    width: 110px;
     height: 80px;
     border-radius: 10%;
     background-color: #ffc107; /* Color dorado por defecto */
@@ -20,20 +20,20 @@
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
-    color: #fff;
+    color: #000000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Colores específicos para cada puesto */
 .primero {
     background-color: #ffd700; /* Oro */
-    height: 200px;
+    height: 150px;
     margin-bottom: 10px;
 }
 
 .segundo {
     background-color: #c0c0c0; /* Plata */
-    height: 150px;
+    height: 125px;
     margin-bottom: 10px;
 }
 
