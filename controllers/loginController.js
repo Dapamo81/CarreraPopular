@@ -1,59 +1,94 @@
 const db = require("../config/db");
 const bcrypt = require("bcryptjs");
+const infoCarrera = require("../controllers/infoCarrera");
 
-exports.getLogin = (req, res) => {
-    res.render("login", { rol: req.session.rol || null });
+exports.getLogin = async (req, res) => {
+    try {
+        const [corredoresList, podioResults, totalCorredores] =
+            await Promise.all([
+                infoCarrera.getCorredores(),
+                infoCarrera.getPodio(),
+                infoCarrera.getTotalCorredores(),
+            ]);
+
+        return res.render("login", {
+            rol: req.session.rol || null,
+            corredores: corredoresList,
+            podio: podioResults,
+            totalCorredores: totalCorredores,
+        });
+    } catch (err) {
+        console.error("Error al obtener datos para login:", err);
+        return res.render("login", {
+            rol: req.session.rol || null,
+            corredores: [],
+            podio: [],
+            totalCorredores: 0,
+            loginError: "Error en el servidor",
+        });
+    }
 };
 
 exports.postLogin = async (req, res) => {
     const email = req.body.email;
     const pass = req.body.password;
 
-    console.log("******************************************************");
-    console.log(req.body);
+    try {
+        const [corredoresList, podioResults, totalCorredores] =
+            await Promise.all([
+                infoCarrera.getCorredores(),
+                infoCarrera.getPodio(),
+                infoCarrera.getTotalCorredores(),
+            ]);
 
-    if (email && pass) {
+        if (!email || !pass) {
+            return res.render("login", {
+                rol: req.session.rol || null,
+                corredores: corredoresList,
+                podio: podioResults,
+                totalCorredores: totalCorredores,
+                loginError: "Introduzca su usuario y contraseña",
+            });
+        }
+
         db.query(
             "SELECT * FROM corredores WHERE email = ?",
             [email],
             async (error, results) => {
-                // console.log("result: ", results[0].contrasena);
-                // console.log("pass: ", pass);
+                if (error) {
+                    console.error(error);
+                    return res.status(500).send("Error en el servidor");
+                }
+
                 if (
                     !results ||
-                    results.length == 0 ||
+                    results.length === 0 ||
                     !(await bcrypt.compare(pass, results[0].contrasena))
                 ) {
-                    // console.log(results, results.length);
-                    // console.log("Usuario y/o contraseña incorrectas");
                     return res.render("login", {
                         rol: req.session.rol || null,
                         loginError: "Usuario y/o contraseña incorrectas",
-                        corredores: results,
+                        corredores: corredoresList,
                         podio: podioResults,
                         totalCorredores: totalCorredores,
                     });
-                } else {
-                    console.log("Conexión exitosa");
-                    req.session.loggedIn = true;
-                    req.session.email = results[0].email;
-                    req.session.rol = "runner";
-                    return res.redirect("/area-privada");
                 }
+
+                // login correcto
+                req.session.loggedIn = true;
+                req.session.email = results[0].email;
+                req.session.rol = results[0].rol || "runner";
+                return res.redirect("/area-privada");
             }
         );
-    } else {
-        console.log("Introduzca su usuario y contraseña");
-        res.render("login", {
-            // alert: true,
-            // alertTitle: "Login",
-            // alertMessage: "Introduzca su usuario y contraseña",
-            // alertIcon: "success",
-            // showConfirmButton: false,
-            // timer: 2500,
-            // ruta: "",
-            // login: false,
-            // titulo: "Login",
+    } catch (err) {
+        console.error("Error en postLogin:", err);
+        return res.render("login", {
+            rol: req.session.rol || null,
+            corredores: [],
+            podio: [],
+            totalCorredores: 0,
+            loginError: "Error en el servidor",
         });
     }
 };
